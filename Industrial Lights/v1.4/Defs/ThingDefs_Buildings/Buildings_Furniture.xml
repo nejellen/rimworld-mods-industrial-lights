@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<!-- Ceiling Lamps -->
+
+	<ThingDef Name="Nej_IndustrialCeilingLightBase" ParentName="StandingLampBase" Abstract="True">
+		<passability>Standable</passability>
+		<clearBuildingArea>false</clearBuildingArea>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<drawerType>MapMeshOnly</drawerType>
+		<costList>
+			<Steel>20</Steel>
+		</costList>
+		<statBases>
+			<Mass>4</Mass>
+			<WorkToBuild>600</WorkToBuild>
+		</statBases>
+		<fillPercent>0</fillPercent>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isInert>true</isInert>
+            <ai_chillDestination>false</ai_chillDestination>
+			<paintable>true</paintable>
+		</building>
+		<minifiedDef />
+		<thingCategories Inherit="False" />
+		<comps Inherit="False">
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>30</basePowerConsumption>
+				<powerUpgrades>
+					<li>
+						<researchProject>ColoredLights</researchProject>
+						<factor>0.5</factor>
+					</li>
+				</powerUpgrades>
+			</li>
+			<li Class="CompProperties_Styleable" />
+			<li Class="CompProperties_Flickable"/>
+		</comps>
+		<placeWorkers>
+			<li MayRequire="owlchemist.ceilingutilities">CeilingUtilities.PlaceWorker_OnlyUnderRoof</li>
+		</placeWorkers>
+		<modExtensions>
+			<li MayRequire="owlchemist.ceilingutilities" Class="CeilingUtilities.CeilingFixture" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+		<pathCost />
+	</ThingDef>
+
+	<ThingDef ParentName="Nej_IndustrialCeilingLightBase">
+		<defName>Nej_IndustrialCeilingLight</defName>
+		<label>ceiling light</label>
+		<description>A ceiling mounted mid-century modern chandelier with a trio of globes.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Lighting/CeilingLightA</texPath>
+			<color>(1,1,1,0.35)</color>
+            <shaderType>Transparent</shaderType>
+			<drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Furniture/Lighting/CeilingLightA</uiIconPath>
+		<drawerType>RealtimeOnly</drawerType>
+		<size>(1,1)</size>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<costStuffCount>120</costStuffCount>
+		<statBases>
+			<Beauty>10</Beauty>
+			<Mass>12</Mass>
+			<WorkToBuild>14000</WorkToBuild>
+		</statBases>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/Lighting/CeilingLightA</li>
+					<li>Things/Building/Furniture/Lighting/CeilingLightB</li>
+					<li>Things/Building/Furniture/Lighting/CeilingLightC</li>
+				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
+			</li>
+		</comps>
+		<specialDisplayRadius>9</specialDisplayRadius>
+		<researchPrerequisites Inherit="False">
+			<li>ComplexFurniture</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+
+	<!-- Floor Lamps -->
+
+	<ThingDef Name="Nej_IndustrialStandingLampBase" ParentName="LampBase" Abstract="True" >
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<rotatable>true</rotatable>
+		<building>
+			<paintable>true</paintable>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+		<modExtensions>
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="Nej_IndustrialStandingLampBase">
+		<defName>Nej_IndustrialFloorLamp</defName>
+		<label>floor lamp</label>
+		<description>A mid-century modern floor lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Lighting/FloorLamp</texPath>
+			<drawSize>(2.6,2.6)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Furniture/Lighting/FloorLampUI</uiIconPath>
+		<size>(1,1)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>80</costStuffCount>
+		<statBases>
+			<Beauty>4</Beauty>
+			<Mass>4</Mass>
+			<WorkToBuild>400</WorkToBuild>
+		</statBases>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<specialDisplayRadius>9</specialDisplayRadius>
+		<researchPrerequisites Inherit="False">
+			<li>ComplexFurniture</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+
+	<!-- Table Lamps -->
+
+	<ThingDef Name="Nej_IndustrialTableLampBase" ParentName="LampBase" Abstract="True" >
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<clearBuildingArea>false</clearBuildingArea>
+		<rotatable>true</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>40</costStuffCount>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>false</canPlaceOverWall>
+			<paintable>true</paintable>
+		</building>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>12</glowRadius>
+				<glowColor>(217,217,208,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+			<!-- <li Class="CompProperties_Styleable" /> -->
+		</comps>
+		<modExtensions>
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
+				<offsets>
+					<li>(0.2, 0, 0.2)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="Nej_IndustrialTableLampBase">
+		<defName>Nej_IndustrialTableLamp</defName>
+		<label>table lamp</label>
+		<description>A table lamp that lights an area. People need light to move and work at full speed.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Lighting/TableLampA</texPath>
+			<drawSize>(1.3,1.3)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Furniture/Lighting/TableLampAUI</uiIconPath>
+		<size>(1,1)</size>
+		<statBases>
+			<Beauty>4</Beauty>
+			<Mass>4</Mass>
+			<WorkToBuild>400</WorkToBuild>
+		</statBases>
+		<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+		<specialDisplayRadius>9</specialDisplayRadius>
+		<researchPrerequisites Inherit="False">
+			<li>ComplexFurniture</li>
+		</researchPrerequisites>
+		<comps>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/Lighting/TableLampA</li>
+					<li>Things/Building/Furniture/Lighting/TableLampB</li>
+				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
+			</li>
+		</comps>
+	</ThingDef>
+
+
+	<!-- Wall Lights -->
+
+	<ThingDef Name="Nej_IndustrialWallLightBase" ParentName="LampBase" Abstract="True" >
+		<graphicData>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+		</graphicData>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Item</altitudeLayer>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<WorkToBuild>250</WorkToBuild>
+			<Flammability>1.0</Flammability>
+			<Mass>2</Mass>
+		</statBases>
+		<placeWorkers>
+			<li MayRequire="owlchemist.wallutilities">WallUtilities.Placeworker_OnlyOnWall</li>
+		</placeWorkers>
+		<building>
+			<isEdifice>false</isEdifice>
+			<canPlaceOverWall>true</canPlaceOverWall>
+			<paintable>true</paintable>
+		</building>
+		<designationCategory>Furniture</designationCategory>
+		<rotatable>true</rotatable>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>25</costStuffCount>
+		<tradeability>None</tradeability>
+		<isAutoAttackableMapObject>false</isAutoAttackableMapObject>
+		<clearBuildingArea>false</clearBuildingArea>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>23</basePowerConsumption>
+				<powerUpgrades>
+					<li>
+						<researchProject>ColoredLights</researchProject>
+						<factor>0.5</factor>
+					</li>
+				</powerUpgrades>
+			</li>
+			<li Class="CompProperties_Glower">
+				<glowRadius>9</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+		<modExtensions>
+			<li MayRequire="owlchemist.wallutilities" Class="WallUtilities.WallMountable" />
+			<li MayRequire="owlchemist.wallutilities" Class="WallUtilities.WallMountedGlower" />
+			<li MayRequire="owlchemist.perspectivebuildings" Class="Perspective.Offsetter">
+				<mirror>False</mirror>
+				<offsetType>Eight</offsetType>
+				<offsets>
+					<li>(0.5, 0, 0.5)</li>
+				</offsets>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="Nej_IndustrialWallLightBase">
+		<defName>Nej_IndustrialWallLight</defName>
+		<label>wall light</label>
+		<!-- <uiIconPath>Things/Building/WallLight_UI</uiIconPath> -->
+		<description>A wall-mounted light fixture in a mid-century modern style.</description>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Lighting/WallLightA</texPath>
+			<drawSize>(1.4,1.4)</drawSize>
+		</graphicData>
+		<uiIconPath>Things/Building/Furniture/Lighting/WallLightAUI</uiIconPath>
+		<comps>
+			<li MayRequire="oskarpotocki.vanillafactionsexpanded.core" Class="VanillaFurnitureExpanded.CompProperties_RandomBuildingGraphic">
+				<randomGraphics>
+					<li>Things/Building/Furniture/Lighting/WallLightA</li>
+					<li>Things/Building/Furniture/Lighting/WallLightB</li>
+					<li>Things/Building/Furniture/Lighting/WallLightC</li>
+				</randomGraphics>
+				<startAsRandom>false</startAsRandom>
+				<disableRandomButton>true</disableRandomButton>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

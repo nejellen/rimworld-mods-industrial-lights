@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+  <name>Industrial Lights by Nejellen</name>
+  <author>Nejellen</author>
+  <packageId>Nej.IndustrialLights</packageId>
+  <supportedVersions>
+    <li>1.4</li>
+  </supportedVersions>
+  <description>
+    A set of lights in a modern style for the industrial tech level. Includes 3 wall lights, 3 ceiling lights, 2 table lamps, and 1 standing lamp.
+
+    Requires OwlChemist's Simple Utilities: Ceiling and Simple Utilities: Wall. 
+  </description>
+  <loadAfter>
+		<li>Owlchemist.CeilingUtilities</li>
+    <li>Owlchemist.WallUtilities</li>
+	</loadAfter>
+  <modDependencies>
+		<li>
+			<packageId>Owlchemist.CeilingUtilities</packageId>
+			<displayName>Simple Utilities: Ceiling</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2571003732</steamWorkshopUrl>
+		</li>
+    <li>
+			<packageId>Owlchemist.WallUtilities</packageId>
+			<displayName>Simple Utilities: Wall</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2565545335</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+</ModMetaData>
